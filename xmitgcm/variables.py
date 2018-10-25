@@ -690,6 +690,23 @@ extra_grid_variables = OrderedDict(
     # skipping for now ...
 )
 
+
+adjoint_variables = OrderedDict(
+    # Printed from write_grid when debugLevel>=debugLevC 
+    eta_ad = dict(dims=['j','i'], attrs=dict(
+        standard_name="sensitivity_to_initial_sea_surface_height",
+        long_name='Sensitivity to initial sea surface height anomaly',
+        units='[objective_function_units]/m')),
+    theta_ad = dict(dims=['k','j','i'], attrs=dict(
+        standard_name="sensitivity_to_initial_potential_temperature",
+        long_name='Sensitivity to initial potential temperature',
+        units='[objective_function_units]/degree_Celcius')),
+    salt_ad = dict(dims=['k','j','i'], attrs=dict(
+        standard_name="sensitivity_to_initial_salinity",
+        long_name='Sensitivity to initial salinity',
+        units='[objective_function_units]/psu'))
+)
+
 # Nptracers=99
 # _ptracers = { 'PTRACER%02d' % n :
 #                (dims=['k','j','i'], 'PTRACER%02d Concentration' % n, "tracer units/m^3")
