@@ -429,9 +429,7 @@ for n in range(1,100):
    )
 
 
-# these aliases are necessary to deal with the LLC output which was saved with
-# unconventional variable names and no meta files
-aliases = {'Eta': 'ETAN', 'PhiBot': 'PHIBOT', 'Salt': 'SALT', 'Theta': 'THETA'}
+
 
 package_state_variables = {
     'KPPviscAz': dict(dims=['k_l', 'j', 'i'], attrs=dict(
@@ -660,20 +658,28 @@ extra_grid_variables = OrderedDict(
 
 
 adjoint_variables = OrderedDict(
-    # Printed from write_grid when debugLevel>=debugLevC 
-    eta_ad = dict(dims=['j','i'], attrs=dict(
+    adxx_etan = dict(dims=['j','i'], attrs=dict(
         standard_name="sensitivity_to_initial_sea_surface_height",
         long_name='Sensitivity to initial sea surface height anomaly',
-        units='[objective_function_units]/m')),
-    theta_ad = dict(dims=['k','j','i'], attrs=dict(
+        units='[objective_function_units]/m',
+        filename='adxx_etan')),
+    adxx_theta = dict(dims=['k','j','i'], attrs=dict(
         standard_name="sensitivity_to_initial_potential_temperature",
         long_name='Sensitivity to initial potential temperature',
         units='[objective_function_units]/degree_Celcius')),
-    salt_ad = dict(dims=['k','j','i'], attrs=dict(
+    adxx_salt = dict(dims=['k','j','i'], attrs=dict(
         standard_name="sensitivity_to_initial_salinity",
         long_name='Sensitivity to initial salinity',
-        units='[objective_function_units]/psu'))
+        units='[objective_function_units]/psu')),
+    adxx_depth = dict(dims=['j','i'], attrs=dict(
+        standard_name="sensitivity_to_rLow",
+        long_name='Sensitivity to bathymetry',
+        units='[objective_function_units]/m'))
 )
+
+# these aliases are necessary to deal with the LLC output which was saved with
+# unconventional variable names and no meta files
+aliases = {'Eta': 'ETAN', 'PhiBot': 'PHIBOT', 'Salt': 'SALT', 'Theta': 'THETA'}
 
 # Nptracers=99
 # _ptracers = { 'PTRACER%02d' % n :

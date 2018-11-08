@@ -21,7 +21,7 @@ from .variables import dimensions, \
     horizontal_coordinates_curvcart, horizontal_coordinates_llc, \
     vertical_coordinates, horizontal_grid_variables, vertical_grid_variables, \
     volume_grid_variables, state_variables, aliases, package_state_variables, \
-    extra_grid_variables, mask_variables
+    extra_grid_variables, mask_variables, adjoint_variables
 # would it be better to import mitgcm_variables and then automate the search
 # for variable dictionaries
 
@@ -504,7 +504,6 @@ class _MDSDataStore(xr.backends.common.AbstractDataStore):
                                                            self.layers)
         self._all_data_variables = _get_all_data_variables(self.data_dir,
                                                            self.layers)
-
         # The rest of the data has to be read from disk.
         # The list `prefixes` specifies file prefixes from which to infer
         # The problem with this is that some prefixes are single variables
@@ -592,6 +591,10 @@ class _MDSDataStore(xr.backends.common.AbstractDataStore):
         else:
             assert iternum is not None
             ddir = self.data_dir
+            if prefix in self._all_data_variables:
+                # NOTE: This does not seem to work ... moving on for now
+                if 'filename' in self._all_data_variables[prefix]:
+                    fname_base = self._all_data_variables[prefix]['filename']
 
         basename = os.path.join(ddir, fname_base)
         try:
@@ -816,6 +819,7 @@ def _get_all_data_variables(data_dir, layers):
     """"Put all the relevant data metadata into one big dictionary."""
     allvars = [state_variables]
     allvars.append(package_state_variables)
+    allvars.append(adjoint_variables)
     # add others from available_diagnostics.log
     fname = os.path.join(data_dir, 'available_diagnostics.log')
     if os.path.exists(fname):
