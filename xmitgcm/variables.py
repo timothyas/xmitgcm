@@ -658,6 +658,11 @@ extra_grid_variables = OrderedDict(
         standard_name="ctrl_vector_3d_mask_at_v_location",
         long_name='CTRL 3D mask where ctrl vector is active at v location',
         units='')),
+    maskCtrlU=dict(dims=['k', 'j', 'i'], attrs=dict(
+        standard_name="shelfice_ctrl_vector_3d_mask",
+        long_name='SHELFICE+CTRL 3D mask where ctrl vector is active at '
+                  'tracer location under ice shelf',
+        units=''))
     # Reference density profile
     rhoRef=dict(dims=['k'],attrs=dict(
         standard_name="reference_density_profile",
