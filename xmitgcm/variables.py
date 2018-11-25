@@ -711,7 +711,19 @@ adjoint_variables = OrderedDict(
     adxx_depth = dict(dims=['j','i'], attrs=dict(
         standard_name="sensitivity_to_rLow",
         long_name='Sensitivity to bathymetry',
-        units='[objective_function_units]/m'))
+        units='[objective_function_units]/m')),
+    adxx_uvel = dict(dims=['k','j','i_g'], attrs=dict(
+        standard_name="sensitivity_to_initial_zonal_velocity",
+        long_name='Sensitivity to initial zonal velocity',
+        units='[objective_function_units]/[m/s]')),
+    adxx_vvel = dict(dims=['k','j_g','i'], attrs=dict(
+        standard_name="sensitivity_to_initial_meridional_velocity",
+        long_name='Sensitivity to initial meridional velocity',
+        units='[objective_function_units]/[m/s]')),
+    adxx_bottomdrag = dict(dims=['j','i'], attrs=dict(
+        standard_name="sensitivity_to_bottom_drag",
+        long_name='Sensitivity to bottom drag',
+        units='[objective_function_units]/[m/s]'))
 )
 
 # these aliases are necessary to deal with the LLC output which was saved with
