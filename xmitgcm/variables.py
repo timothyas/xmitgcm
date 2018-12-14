@@ -702,48 +702,134 @@ extra_grid_variables = OrderedDict(
 adjoint_variables = OrderedDict(
     adxx_etan = dict(dims=['j','i'], attrs=dict(
         standard_name="sensitivity_to_initial_sea_surface_height",
-        long_name='Sensitivity to initial sea surface height anomaly',
-        units='[objective_function_units]/m',
-        filename='adxx_etan')),
+        long_name='sensitivity to initial sea surface height anomaly',
+        units='[objective_function_units]/m')),
     adxx_theta = dict(dims=['k','j','i'], attrs=dict(
         standard_name="sensitivity_to_initial_potential_temperature",
-        long_name='Sensitivity to initial potential temperature',
-        units='[objective_function_units]/degree_Celcius')),
+        long_name='sensitivity to initial potential temperature',
+        units='[objective_function_units]/degree_celcius')),
     adxx_salt = dict(dims=['k','j','i'], attrs=dict(
         standard_name="sensitivity_to_initial_salinity",
-        long_name='Sensitivity to initial salinity',
+        long_name='sensitivity to initial salinity',
         units='[objective_function_units]/psu')),
     adxx_depth = dict(dims=['j','i'], attrs=dict(
-        standard_name="sensitivity_to_rLow",
-        long_name='Sensitivity to bathymetry',
+        standard_name="sensitivity_to_rlow",
+        long_name='sensitivity to bathymetry',
         units='[objective_function_units]/m')),
     adxx_uvel = dict(dims=['k','j','i_g'], attrs=dict(
         standard_name="sensitivity_to_initial_zonal_velocity",
-        long_name='Sensitivity to initial zonal velocity',
+        long_name='sensitivity to initial zonal velocity',
         units='[objective_function_units]/[m/s]')),
     adxx_vvel = dict(dims=['k','j_g','i'], attrs=dict(
         standard_name="sensitivity_to_initial_meridional_velocity",
-        long_name='Sensitivity to initial meridional velocity',
+        long_name='sensitivity to initial meridional velocity',
         units='[objective_function_units]/[m/s]')),
     adxx_bottomdrag = dict(dims=['j','i'], attrs=dict(
         standard_name="sensitivity_to_bottom_drag",
-        long_name='Sensitivity to bottom drag',
+        long_name='sensitivity to bottom drag',
         units='[objective_function_units]/[m/s]')),
     adxx_shicoefft = dict(dims=['j','i'], attrs=dict(
         standard_name="sensitivity_to_shi_trans_coeff_t",
-        long_name='Sensitivity to shelfice temperature transfer '
+        long_name='sensitivity to shelfice temperature transfer '
                   'coefficient',
         units='[objective_function_units]/[m/s]')),
     adxx_shicoeffs = dict(dims=['j','i'], attrs=dict(
         standard_name="sensitivity_to_shi_trans_coeff_s",
-        long_name='Sensitivity to shelfice salinity transfer '
+        long_name='sensitivity to shelfice salinity transfer '
                   'coefficient',
         units='[objective_function_units]/[m/s]')),
     adxx_diffkr = dict(dims=['k','j','i'], attrs=dict(
         standard_name="sensitivity_to_vertical_diffusivity",
-        long_name='Sensitivity to vertical diffusivity',
-        units='[objective_function_units]/m^2/s')),
+        long_name='sensitivity to vertical diffusivity',
+        units='[objective_function_units]/m^2/s'))
 )
+
+ctrl_variables = {
+    'xx_etan' : dict(dims=['j','i'], attrs=dict(
+        standard_name="updates_to_initial_sea_surface_height",
+        long_name='updates to initial sea surface height anomaly',
+        units='m')),
+    'xx_theta' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="updates_to_initial_potential_temperature",
+        long_name='updates to initial potential temperature',
+        units='degree_celcius')),
+    'xx_salt' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="updates_to_initial_salinity",
+        long_name='updates to initial salinity',
+        units='psu')),
+    'xx_depth' : dict(dims=['j','i'], attrs=dict(
+        standard_name="updates_to_rlow",
+        long_name='updates to bathymetry',
+        units='m')),
+    'xx_uvel' : dict(dims=['k','j','i_g'], attrs=dict(
+        standard_name="updates_to_initial_zonal_velocity",
+        long_name='updates to initial zonal velocity',
+        units='m/s')),
+    'xx_vvel' : dict(dims=['k','j_g','i'], attrs=dict(
+        standard_name="updates_to_initial_meridional_velocity",
+        long_name='updates to initial meridional velocity',
+        units='m/s')),
+    'xx_bottomdrag' : dict(dims=['j','i'], attrs=dict(
+        standard_name="updates_to_bottom_drag",
+        long_name='updates to bottom drag',
+        units='m/s')),
+    'xx_shicoefft' : dict(dims=['j','i'], attrs=dict(
+        standard_name="updates_to_shi_trans_coeff_t",
+        long_name='updates to shelfice temperature transfer '
+                  'coefficient',
+        units='m/s')),
+    'xx_shicoeffs' : dict(dims=['j','i'], attrs=dict(
+        standard_name="updates_to_shi_trans_coeff_s",
+        long_name='updates to shelfice salinity transfer '
+                  'coefficient',
+        units='m/s')),
+    'xx_diffkr' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="updates_to_vertical_diffusivity",
+        long_name='updates to vertical diffusivity',
+        units='m^2/s')),
+    'xx_etan.effective' : dict(dims=['j','i'], attrs=dict(
+        standard_name="updates_to_initial_sea_surface_height",
+        long_name='updates to initial sea surface height anomaly',
+        units='m')),
+    'xx_theta.effective' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="effupdates_to_initial_potential_temperature",
+        long_name='effective updates to initial potential temperature',
+        units='degree_celcius')),
+    'xx_salt.effective' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="effupdates_to_initial_salinity",
+        long_name='effective updates to initial salinity',
+        units='psu')),
+    'xx_depth.effective' : dict(dims=['j','i'], attrs=dict(
+        standard_name="effupdates_to_rlow",
+        long_name='effective updates to bathymetry',
+        units='m')),
+    'xx_uvel.effective' : dict(dims=['k','j','i_g'], attrs=dict(
+        standard_name="effupdates_to_initial_zonal_velocity",
+        long_name='effective updates to initial zonal velocity',
+        units='m/s')),
+    'xx_vvel.effective' : dict(dims=['k','j_g','i'], attrs=dict(
+        standard_name="effupdates_to_initial_meridional_velocity",
+        long_name='effective updates to initial meridional velocity',
+        units='m/s')),
+    'xx_bottomdrag.effective' : dict(dims=['j','i'], attrs=dict(
+        standard_name="effupdates_to_bottom_drag",
+        long_name='effective updates to bottom drag',
+        units='m/s')),
+    'xx_shicoefft.effective' : dict(dims=['j','i'], attrs=dict(
+        standard_name="effupdates_to_shi_trans_coeff_t",
+        long_name='effective updates to shelfice temperature transfer '
+                  'coefficient',
+        units='m/s')),
+    'xx_shicoeffs.effective' : dict(dims=['j','i'], attrs=dict(
+        standard_name="effupdates_to_shi_trans_coeff_s",
+        long_name='effective updates to shelfice salinity transfer '
+                  'coefficient',
+        units='[objective_function_units]/[m/s]')),
+    'xx_diffkr.effective' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="effupdates_to_vertical_diffusivity",
+        long_name='effective updates to vertical diffusivity',
+        units='m^2/s'))
+}
 
 # these aliases are necessary to deal with the LLC output which was saved with
 # unconventional variable names and no meta files

@@ -30,6 +30,9 @@ def parse_meta_file(fname):
     """
     flds = {}
     basename = re.match('(^.+?)\..+', os.path.basename(fname)).groups()[0]
+    xx_effective_re = re.match('(^.+?)\.([efctiv]+)\..+', os.path.basename(fname))
+    if xx_effective_re is not None:
+        basename = ('%s.%s' % (basename,xx_effective_re.groups()[1]))
     flds['basename'] = basename
     with open(fname) as f:
         text = f.read()

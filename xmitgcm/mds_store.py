@@ -21,7 +21,7 @@ from .variables import dimensions, \
     horizontal_coordinates_curvcart, horizontal_coordinates_llc, \
     vertical_coordinates, horizontal_grid_variables, vertical_grid_variables, \
     volume_grid_variables, state_variables, aliases, package_state_variables, \
-    extra_grid_variables, mask_variables, adjoint_variables
+    extra_grid_variables, mask_variables, adjoint_variables, ctrl_variables
 # would it be better to import mitgcm_variables and then automate the search
 # for variable dictionaries
 
@@ -845,6 +845,7 @@ def _get_all_data_variables(data_dir, grid_dir, layers):
     allvars = [state_variables]
     allvars.append(package_state_variables)
     allvars.append(adjoint_variables)
+    allvars.append(ctrl_variables)
     # add others from available_diagnostics.log
     # search in the data dir
     fnameD = os.path.join(data_dir, 'available_diagnostics.log')
