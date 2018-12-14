@@ -658,10 +658,15 @@ extra_grid_variables = OrderedDict(
         standard_name="ctrl_vector_3d_mask_at_v_location",
         long_name='CTRL 3D mask where ctrl vector is active at v location',
         units='')),
+    maskCtrlI=dict(dims=['k', 'j', 'i'], attrs=dict(
+        standard_name="shelfice_ctrl_vector_3d_mask",
+        long_name='SHELFICE+CTRL 3D mask where ctrl vector is active, '
+                  'top layer shows ice/ocean boundary points',
+        units='')),
     maskCtrlU=dict(dims=['k', 'j', 'i'], attrs=dict(
         standard_name="shelfice_ctrl_vector_3d_mask",
-        long_name='SHELFICE+CTRL 3D mask where ctrl vector is active at '
-                  'tracer location under ice shelf',
+        long_name='SHELFICE+CTRL 3D mask where ctrl vector is active, '
+                  'top layer shows wet tracer locations in ice shelf domain',
         units=''))
     # Reference density profile
     rhoRef=dict(dims=['k'],attrs=dict(
@@ -723,7 +728,21 @@ adjoint_variables = OrderedDict(
     adxx_bottomdrag = dict(dims=['j','i'], attrs=dict(
         standard_name="sensitivity_to_bottom_drag",
         long_name='Sensitivity to bottom drag',
-        units='[objective_function_units]/[m/s]'))
+        units='[objective_function_units]/[m/s]')),
+    adxx_shicoefft = dict(dims=['j','i'], attrs=dict(
+        standard_name="sensitivity_to_shi_trans_coeff_t",
+        long_name='Sensitivity to shelfice temperature transfer '
+                  'coefficient',
+        units='[objective_function_units]/[m/s]')),
+    adxx_shicoeffs = dict(dims=['j','i'], attrs=dict(
+        standard_name="sensitivity_to_shi_trans_coeff_s",
+        long_name='Sensitivity to shelfice salinity transfer '
+                  'coefficient',
+        units='[objective_function_units]/[m/s]')),
+    adxx_diffkr = dict(dims=['k','j','i'], attrs=dict(
+        standard_name="sensitivity_to_vertical_diffusivity",
+        long_name='Sensitivity to vertical diffusivity',
+        units='[objective_function_units]/m^2/s')),
 )
 
 # these aliases are necessary to deal with the LLC output which was saved with
