@@ -667,7 +667,7 @@ extra_grid_variables = OrderedDict(
         standard_name="shelfice_ctrl_vector_3d_mask",
         long_name='SHELFICE+CTRL 3D mask where ctrl vector is active, '
                   'top layer shows wet tracer locations in ice shelf domain',
-        units=''))
+        units='')),
     # Reference density profile
     rhoRef=dict(dims=['k'],attrs=dict(
         standard_name="reference_density_profile",
