@@ -738,6 +738,11 @@ adjoint_variables = OrderedDict(
         long_name='sensitivity to shelfice salinity transfer '
                   'coefficient',
         units='[objective_function_units]/[m/s]')),
+    adxx_shicdrag = dict(dims=['j','i'], attrs=dict(
+        standard_name="sensitivity_to_shi_drag_coeff",
+        long_name='sensitivity to shelfice u* drag '
+                  'coefficient',
+        units='[objective_function_units]/[]')),
     adxx_diffkr = dict(dims=['k','j','i'], attrs=dict(
         standard_name="sensitivity_to_vertical_diffusivity",
         long_name='sensitivity to vertical diffusivity',
@@ -783,6 +788,11 @@ ctrl_variables = {
         long_name='updates to shelfice salinity transfer '
                   'coefficient',
         units='m/s')),
+    'xx_shicdrag' : dict(dims=['j','i'], attrs=dict(
+        standard_name="updates_to_shi_drag_coeff",
+        long_name='updates to shelfice u* drag '
+                  'coefficient',
+        units='')),
     'xx_diffkr' : dict(dims=['k','j','i'], attrs=dict(
         standard_name="updates_to_vertical_diffusivity",
         long_name='updates to vertical diffusivity',
@@ -823,6 +833,11 @@ ctrl_variables = {
     'xx_shicoeffs.effective' : dict(dims=['j','i'], attrs=dict(
         standard_name="effupdates_to_shi_trans_coeff_s",
         long_name='effective updates to shelfice salinity transfer '
+                  'coefficient',
+        units='[objective_function_units]/[m/s]')),
+    'xx_shicdrag.effective' : dict(dims=['j','i'], attrs=dict(
+        standard_name="effupdates_to_shi_drag_coeff",
+        long_name='effective updates to shelfice u* drag '
                   'coefficient',
         units='[objective_function_units]/[m/s]')),
     'xx_diffkr.effective' : dict(dims=['k','j','i'], attrs=dict(
