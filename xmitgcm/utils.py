@@ -1616,7 +1616,7 @@ def llc_facets_3d_spatial_to_compact(facets, dimname, extra_metadata):
         for kfacet in range(nfacets):
             this_facet = facets['facet' + str(kfacet)]
             if this_facet is not None:
-                tmpdict['facet' + str(kfacet)] = this_facet.isel(k=kz)
+                tmpdict['facet' + str(kfacet)] = this_facet.isel({dimname:kz})
             else:
                 tmpdict['facet' + str(kfacet)] = None
         # concatenate all 2d arrays
