@@ -609,10 +609,6 @@ class _MDSDataStore(xr.backends.common.AbstractDataStore):
         else:
             assert iternum is not None
             ddir = self.data_dir
-            if prefix in self._all_data_variables:
-                # NOTE: This does not seem to work ... moving on for now
-                if 'filename' in self._all_data_variables[prefix]:
-                    fname_base = self._all_data_variables[prefix]['filename']
 
         basename = os.path.join(ddir, fname_base)
         try:
@@ -707,6 +703,8 @@ class _MDSDataStore(xr.backends.common.AbstractDataStore):
                 #data = data.reshape(newshape)
                 data = data[None]
 
+            # catch xx_*.effective, remove '.' for user friendliness
+            vname = vname.replace('.','_')
             yield vname, dims, data, attrs
 
     def get_variables(self):
