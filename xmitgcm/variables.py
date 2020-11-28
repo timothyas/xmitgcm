@@ -829,7 +829,14 @@ ctrl_variables = {
         standard_name="effupdates_to_shi_trans_coeff_t",
         long_name='effective updates to shelfice temperature transfer '
                   'coefficient',
-        units='m/s')),
+        units='m/s'),
+        rename='xx_shicoefft_eff'),
+    'xx_shicoefft.reg' : dict(dims=['j','i'], attrs=dict(
+        standard_name="shi_trans_coeff_t_regularization",
+        long_name='regularization term for shelfice temperature transfer '
+                  'coefficient',
+        units='m/s'),
+        rename='xx_shicoefft_reg'),
     'xx_shicoeffs.effective' : dict(dims=['j','i'], attrs=dict(
         standard_name="effupdates_to_shi_trans_coeff_s",
         long_name='effective updates to shelfice salinity transfer '

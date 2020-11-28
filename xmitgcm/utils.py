@@ -30,7 +30,7 @@ def parse_meta_file(fname):
     """
     flds = {}
     basename = re.match('(^.+?)\..+', os.path.basename(fname)).groups()[0]
-    xx_effective_re = re.match('(^.+?)\.([efctiv]+)\..+', os.path.basename(fname))
+    xx_effective_re = re.match('(^.+?)\.([efctivrg]+)\..+', os.path.basename(fname))
     if xx_effective_re is not None:
         basename = ('%s.%s' % (basename,xx_effective_re.groups()[1]))
     flds['basename'] = basename
@@ -1188,7 +1188,7 @@ def _pad_array(data, file_metadata, face=0):
 
 
 def get_extra_metadata(domain='llc', nx=90):
-    """ 
+    """
     Return the extra_metadata dictionay for selected domains
 
     PARAMETERS
@@ -1250,7 +1250,7 @@ def get_extra_metadata(domain='llc', nx=90):
 def get_grid_from_input(gridfile, nx=None, ny=None, geometry='llc',
                         dtype=np.dtype('d'), endian='>', use_dask=False,
                         extra_metadata=None):
-    """ 
+    """
     Read grid variables from grid input files, this is especially useful
     for llc and cube sphere configurations used with land tiles
     elimination. Reading the input grid files (e.g. tile00[1-5].mitgrid)
@@ -1276,7 +1276,7 @@ def get_grid_from_input(gridfile, nx=None, ny=None, geometry='llc',
         dictionary of extra metadata, needed for llc configurations
 
     RETURNS
-    ------- 
+    -------
     grid : xarray.Dataset
         all grid variables
     """
