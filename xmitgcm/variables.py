@@ -805,9 +805,17 @@ ctrl_variables = {
         standard_name="effupdates_to_initial_potential_temperature",
         long_name='effective updates to initial potential temperature',
         units='degree_celcius')),
+    'xx_theta.reg' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="initial_potential_temperature_regularization",
+        long_name='regularization term for initial potential temperature',
+        units='degree_celcius')),
     'xx_salt.effective' : dict(dims=['k','j','i'], attrs=dict(
         standard_name="effupdates_to_initial_salinity",
         long_name='effective updates to initial salinity',
+        units='psu')),
+    'xx_salt.reg' : dict(dims=['k','j','i'], attrs=dict(
+        standard_name="initial_salinity_regularization",
+        long_name='regularization term for initial salinity',
         units='psu')),
     'xx_depth.effective' : dict(dims=['j','i'], attrs=dict(
         standard_name="effupdates_to_rlow",
