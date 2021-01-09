@@ -855,6 +855,11 @@ ctrl_variables = {
         long_name='effective updates to shelfice u* drag '
                   'coefficient',
         units='[objective_function_units]/[m/s]')),
+    'xx_shicdrag.reg' : dict(dims=['j','i'], attrs=dict(
+        standard_name="shi_drag_coeff_regularization",
+        long_name='regularization term for shelfice u* drag '
+                  'coefficient',
+        units='[objective_function_units]/[m/s]')),
     'xx_diffkr.effective' : dict(dims=['k','j','i'], attrs=dict(
         standard_name="effupdates_to_vertical_diffusivity",
         long_name='effective updates to vertical diffusivity',
